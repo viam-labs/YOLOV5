@@ -1,0 +1,13 @@
+{
+  "module_id": "viam-labs:YOLOv5",
+  "visibility": "public",
+  "url": "https://github.com/viam-labs/YOLOv5",
+  "description": "A Viam modular computer vision service for YOLOv5 inference, including models on HuggingFace",
+  "models": [
+    {
+      "api": "rdk:service:vision",
+      "model": "viam-labs:vision:yolov5"
+    }
+  ],
+  "entrypoint": "run.sh"
+}
