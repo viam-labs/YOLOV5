@@ -7,4 +7,4 @@ from viam.resource.registry import Registry, ResourceCreatorRegistration
 
 from .YOLOv5 import YOLOv5
 
-Registry.register_resource_creator(Vision.SUBTYPE, YOLOv5.MODEL, ResourceCreatorRegistration(YOLOv5.new, YOLOv5.validate))
+Registry.register_resource_creator(Vision.API, YOLOv5.MODEL, ResourceCreatorRegistration(YOLOv5.new, YOLOv5.validate))
