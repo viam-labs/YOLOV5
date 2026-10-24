@@ -20,6 +20,10 @@ from viam.resource.types import Model, ModelFamily
 from viam.services.vision import CaptureAllResult, Vision
 from viam.utils import ValueTypes
 
+# isort: split
+# yolov5 is the pip package. On case-insensitive filesystems ruff resolves it
+# to src/YOLOv5.py and sorts it as first-party, so it is kept in its own block
+# to sort the same way on macOS and Linux.
 import yolov5
 
 LOGGER = getLogger(__name__)
