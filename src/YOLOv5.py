@@ -1,40 +1,25 @@
 from typing import (
-    ClassVar,
-    Mapping,
-    Sequence,
     Any,
-    Dict,
-    Optional,
-    Tuple,
-    Final,
+    ClassVar,
     List,
+    Mapping,
+    Optional,
     cast,
 )
+
 from typing_extensions import Self
-
-from typing import Any, Final, List, Mapping, Optional, Union
-
-from PIL import Image
-
-from viam.proto.common import PointCloudObject
-from viam.proto.service.vision import Classification, Detection
-from viam.resource.types import RESOURCE_NAMESPACE_RDK, RESOURCE_TYPE_SERVICE, Subtype
-from viam.utils import ValueTypes
-
+from viam.components.camera import Camera, ViamImage
+from viam.logging import getLogger
+from viam.media.utils.pil import viam_to_pil_image
 from viam.module.types import Reconfigurable
 from viam.proto.app.robot import ComponentConfig
-from viam.proto.common import ResourceName
+from viam.proto.common import PointCloudObject, ResourceName
+from viam.proto.service.vision import Classification, Detection, GetPropertiesResponse
 from viam.resource.base import ResourceBase
 from viam.resource.types import Model, ModelFamily
+from viam.services.vision import CaptureAllResult, Vision
+from viam.utils import ValueTypes
 
-from viam.services.vision import Vision, CaptureAllResult
-from viam.proto.service.vision import GetPropertiesResponse
-from viam.components.camera import Camera, ViamImage
-from viam.media.utils.pil import viam_to_pil_image
-from viam.logging import getLogger
-
-import time
-import asyncio
 import yolov5
 
 LOGGER = getLogger(__name__)
