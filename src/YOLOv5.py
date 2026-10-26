@@ -40,9 +40,7 @@ class YOLOv5(Vision, Reconfigurable):
 
     # Constructor
     @classmethod
-    def new(
-        cls, config: ComponentConfig, dependencies: Mapping[ResourceName, ResourceBase]
-    ) -> Self:
+    def new(cls, config: ComponentConfig, dependencies: Mapping[ResourceName, ResourceBase]) -> Self:
         my_class = cls(config.name)
         my_class.reconfigure(config, dependencies)
         return my_class
@@ -56,13 +54,9 @@ class YOLOv5(Vision, Reconfigurable):
         return
 
     # Handles attribute reconfiguration
-    def reconfigure(
-        self, config: ComponentConfig, dependencies: Mapping[ResourceName, ResourceBase]
-    ):
+    def reconfigure(self, config: ComponentConfig, dependencies: Mapping[ResourceName, ResourceBase]):
         self.DEPS = dependencies
-        self.model = yolov5.load(
-            config.attributes.fields["model_location"].string_value
-        )
+        self.model = yolov5.load(config.attributes.fields["model_location"].string_value)
         return
 
     async def get_cam_image(self, camera_name: str) -> ViamImage:
